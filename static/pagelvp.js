@@ -43,9 +43,9 @@ module.exports = function (req, res, url) {
 			};
 			params = {
 				flashvars: {
-					apiserver: "http://localhost/",
+					apiserver: "/",
 					storePath: process.env.STORE_URL + "/<store>",
-					ut: 60,
+					ut: 30,
 					thumbnailURL: "http://localhost/movie_thumbs/${mId}.png",
 					isEmbed: 1,
 					autostart: 0,
