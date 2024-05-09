@@ -48,7 +48,7 @@ module.exports = function (req, res, url) {
 					storePath: process.env.STORE_URL + "/<store>",
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
 					original_asset_id: query["id"] || null,
-					themeId: "business",
+					themeId: "family",
 					ut: 60,
 					bs: "default",
 					appCode: "go",
@@ -61,7 +61,7 @@ module.exports = function (req, res, url) {
 					tlang: "en_US",
 				},
 				allowScriptAccess: "always",
-				movie: process.env.SWF_URL + "/cc.swf", // 'http://localhost/cc.swf'
+				movie: process.env.SWF_URL + "/cc.swf", // 'cc.swf'
 			};
 			break;
 		}
