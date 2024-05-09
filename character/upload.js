@@ -1,6 +1,6 @@
 const formidable = require("formidable");
 const fUtil = require("../misc/file");
-const parse = require("./parse");
+const parse = require("../movie/parse");
 const http = require("http");
 const fs = require("fs");
 
@@ -11,17 +11,16 @@ const fs = require("fs");
  * @returns {boolean}
  */
 module.exports = function (req, res, url) {
-	if (req.method != "POST" || url.path != "/upload_movie") return;
+	if (req.method != "POST" || url.path != "/upload_character") return;
 	new formidable.IncomingForm().parse(req, (e, f, files) => {
 		if (!files.import) return;
 		var path = files.import.path;
 		var buffer = fs.readFileSync(path);
-		var numId = fUtil.getNextFileId("movie-", ".xml");
-		parse.unpackXml(buffer, `m-${numId}`);
+		var numId = fUtil.getNextFileId("char-", ".xml");
+		parse.unpackXml(buffer, `c-${numId}`);
 		fs.unlinkSync(path);
-
 		res.statusCode = 302;
-		var url = `/go_full?movieId=m-${numId}`;
+		var url = `/html/list/characters.html`;
 		res.setHeader("Location", url);
 		res.end();
 	});

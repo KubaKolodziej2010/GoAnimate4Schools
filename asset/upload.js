@@ -3,7 +3,6 @@ const formidable = require("formidable");
 const asset = require("./main");
 const http = require("http");
 const fs = require("fs");
-const movie = require("../movie/main")
 
 /**
  * @param {http.IncomingMessage} req
@@ -35,20 +34,6 @@ module.exports = function (req, res, url) {
 				fs.unlinkSync(path);
 				delete buffer;
 				res.end();
-			});
-			return true;
-		case "/goapi/saveSound/":
-			loadPost(req, res).then(([data, mId]) => {
-				var bytes = Buffer.from(data.bytes, "base64");
-				asset.save(bytes, mId, "voiceover", "ogg");
-			});
-			return true;
-		case "/goapi/saveTemplate/":
-			loadPost(req, res).then(([data, mId]) => {
-				var body = Buffer.from(data.body_zip, "base64");
-				// var thumb = data.thumbnail_large && Buffer.from(data.thumbnail_large, "base64");
-				res.end("0" + asset.save(body, mId, "starter", "xml"));
-				// movie.save(body, thumb, mId, data.presaveId).then((nId) => res.end("0" + nId));
 			});
 			return true;
 	}
