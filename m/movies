@@ -65,7 +65,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
 			<li>
-			<a onclick="document.getElementById('file').click()">Upload a video xml</a>
+			<a onclick="document.getElementById('file').click()">UPLOAD A MOVIE</a>
 			</li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">Your Account <span class="caret"></span></a>
